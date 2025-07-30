@@ -164,3 +164,24 @@ All colors MUST be HSL.
   0%, 100% { box-shadow: 0 0 5px hsl(var(--primary) / 0.3); }
   50% { box-shadow: 0 0 15px hsl(var(--primary) / 0.6), 0 0 25px hsl(var(--primary) / 0.4); }
 }
+
+/* Rank System Animations */
+@keyframes rankUp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.rank-up-animation {
+  animation: rankUp 0.5s ease-in-out;
+}
+
+/* Progress Circle Animation */
+@keyframes progressFill {
+  from { stroke-dashoffset: 100%; }
+  to { stroke-dashoffset: var(--progress-offset); }
+}
+
+.progress-circle {
+  animation: progressFill 1s ease-out;
+}

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { TodoItem } from "./TodoItem";
 import { AddTodoForm } from "./AddTodoForm";
 import { Celebration } from "./Celebration";
+import { RankSystem } from "./RankSystem";
 import { cn } from "@/lib/utils";
 
 export interface Todo {
@@ -102,6 +103,9 @@ export const TodoApp = () => {
 
   return (
     <div className="min-h-screen bg-background p-6">
+      {/* Rank System */}
+      <RankSystem completedCount={completedCount} />
+      
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Header */}
         <div className="text-center space-y-4 fade-in">
