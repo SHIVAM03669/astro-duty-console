@@ -78,29 +78,6 @@ export const Celebration = ({ show, onComplete, taskTitle }: CelebrationProps) =
           </div>
         </div>
       </div>
-
-      {/* Floating particles */}
-      {isVisible && (
-        <>
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div
-              key={i}
-              className={cn(
-                "absolute w-2 h-2 rounded-full animate-pulse",
-                i % 3 === 0 && "bg-neon-green",
-                i % 3 === 1 && "bg-primary", 
-                i % 3 === 2 && "bg-neon-purple"
-              )}
-              style={{
-                left: `${20 + (i * 6)}%`,
-                top: `${30 + (i * 4)}%`,
-                animationDelay: `${i * 200}ms`,
-                animationDuration: "2s",
-              }}
-            />
-          ))}
-        </>
-      )}
     </div>
   );
 };
