@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TodoItem } from "./TodoItem";
 import { AddTodoForm } from "./AddTodoForm";
+import { Celebration } from "./Celebration";
 import { cn } from "@/lib/utils";
 
 export interface Todo {
@@ -21,6 +22,8 @@ export const TodoApp = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
   const [showAddForm, setShowAddForm] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [celebrationTask, setCelebrationTask] = useState<string>("");
 
   // Load todos from localStorage on component mount
   useEffect(() => {
@@ -52,6 +55,13 @@ export const TodoApp = () => {
   };
 
   const toggleTodo = (id: string) => {
+    const todo = todos.find(t => t.id === id);
+    if (todo && !todo.completed) {
+      // Trigger celebration for newly completed tasks
+      setCelebrationTask(todo.title);
+      setShowCelebration(true);
+    }
+    
     setTodos(prev =>
       prev.map(todo =>
         todo.id === id
@@ -211,6 +221,13 @@ export const TodoApp = () => {
           </div>
         )}
       </div>
+
+      {/* Celebration Animation */}
+      <Celebration 
+        show={showCelebration}
+        onComplete={() => setShowCelebration(false)}
+        taskTitle={celebrationTask}
+      />
     </div>
   );
 };
