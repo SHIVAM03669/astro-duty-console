@@ -127,7 +127,7 @@ export const TodoItem = ({ todo, onToggle, onDelete, onUpdate }: TodoItemProps) 
                 <h3
                   className={cn(
                     "text-lg font-medium transition-all",
-                    todo.completed && "line-through text-muted-foreground"
+                    todo.completed && "text-muted-foreground"
                   )}
                 >
                   {todo.title}
@@ -135,8 +135,7 @@ export const TodoItem = ({ todo, onToggle, onDelete, onUpdate }: TodoItemProps) 
                 {todo.description && (
                   <p
                     className={cn(
-                      "text-sm text-muted-foreground mt-1",
-                      todo.completed && "line-through"
+                      "text-sm text-muted-foreground mt-1"
                     )}
                   >
                     {todo.description}
